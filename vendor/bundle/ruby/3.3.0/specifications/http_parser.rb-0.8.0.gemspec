@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.rubygems_version = "3.2.5".freeze
   s.summary = "Simple callback-based HTTP request/response parser".freeze
 
-  s.installed_by_version = "3.5.11".freeze if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.5.22".freeze
 
   s.specification_version = 4
 

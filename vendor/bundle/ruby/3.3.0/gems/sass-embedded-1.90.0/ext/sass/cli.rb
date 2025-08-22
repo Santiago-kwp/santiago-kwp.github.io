@@ -3,7 +3,7 @@
 module Sass
   module CLI
     COMMAND = [
-      File.absolute_path('dart-sass/src/dart', __dir__).freeze,
+      File.absolute_path('dart-sass/src/dart.exe', __dir__).freeze,
       File.absolute_path('dart-sass/src/sass.snapshot', __dir__).freeze
     ].freeze
   end

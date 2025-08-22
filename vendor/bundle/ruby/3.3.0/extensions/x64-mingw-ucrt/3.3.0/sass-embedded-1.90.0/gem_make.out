@@ -1,0 +1,8 @@
+current directory: C:/study/githubio/santiago-kwp.github.io/vendor/bundle/ruby/3.3.0/gems/sass-embedded-1.90.0/ext/sass
+C:/Ruby33-x64/bin/ruby.exe -rrubygems C:/study/githubio/santiago-kwp.github.io/vendor/bundle/ruby/3.3.0/gems/rake-13.3.0/exe/rake RUBYARCHDIR\=C:/study/githubio/santiago-kwp.github.io/vendor/bundle/ruby/3.3.0/extensions/x64-mingw-ucrt/3.3.0/sass-embedded-1.90.0 RUBYLIBDIR\=C:/study/githubio/santiago-kwp.github.io/vendor/bundle/ruby/3.3.0/extensions/x64-mingw-ucrt/3.3.0/sass-embedded-1.90.0
+Ignoring eventmachine-1.2.7 because its extensions are not built. Try: gem pristine eventmachine --version 1.2.7
+Ignoring ffi-1.17.2 because its extensions are not built. Try: gem pristine ffi --version 1.17.2
+gem install --force --install-dir C:/study/githubio/santiago-kwp.github.io/vendor/bundle/ruby/3.3.0/gems/sass-embedded-1.90.0/ext/sass/ruby --no-document --ignore-dependencies --platform x64-mingw-ucrt --version 1.90.0 sass-embedded
+WARNING:  Unable to use symlinks, installing wrapper
+mv C:/study/githubio/santiago-kwp.github.io/vendor/bundle/ruby/3.3.0/gems/sass-embedded-1.90.0/ext/sass/ruby/gems/sass-embedded-1.90.0-x64-mingw-ucrt/ext/sass/dart-sass dart-sass
+rm -rf C:/study/githubio/santiago-kwp.github.io/vendor/bundle/ruby/3.3.0/gems/sass-embedded-1.90.0/ext/sass/ruby

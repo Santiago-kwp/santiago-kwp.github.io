@@ -1,0 +1,10 @@
+current directory: C:/study/githubio/santiago-kwp.github.io/vendor/bundle/ruby/3.3.0/gems/google-protobuf-4.32.0/ext/google/protobuf_c
+C:/Ruby33-x64/bin/ruby.exe -rrubygems C:/study/githubio/santiago-kwp.github.io/vendor/bundle/ruby/3.3.0/gems/rake-13.3.0/exe/rake RUBYARCHDIR\=C:/study/githubio/santiago-kwp.github.io/vendor/bundle/ruby/3.3.0/extensions/x64-mingw-ucrt/3.3.0/google-protobuf-4.32.0 RUBYLIBDIR\=C:/study/githubio/santiago-kwp.github.io/vendor/bundle/ruby/3.3.0/extensions/x64-mingw-ucrt/3.3.0/google-protobuf-4.32.0
+Ignoring eventmachine-1.2.7 because its extensions are not built. Try: gem pristine eventmachine --version 1.2.7
+Ignoring ffi-1.17.2 because its extensions are not built. Try: gem pristine ffi --version 1.17.2
+Ignoring google-protobuf-4.32.0 because its extensions are not built. Try: gem pristine google-protobuf --version 4.32.0
+Ignoring eventmachine-1.2.7 because its extensions are not built. Try: gem pristine eventmachine --version 1.2.7
+Ignoring ffi-1.17.2 because its extensions are not built. Try: gem pristine ffi --version 1.17.2
+Ignoring google-protobuf-4.32.0 because its extensions are not built. Try: gem pristine google-protobuf --version 4.32.0
+Ignoring sass-embedded-1.90.0 because its extensions are not built. Try: gem pristine sass-embedded --version 1.90.0
+Skipping build of FFI; `gem install ffi-compiler` to enable.
