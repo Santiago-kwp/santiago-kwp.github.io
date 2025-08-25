@@ -34,3 +34,12 @@ jaeyun-kim:
       icon: "fab fa-fw fa-github"
       url: "https://github.com/jaeyunew"
 
+
+# 작성자5
+Gun-Sin:
+  name: "신건"
+  avatar: "/assets/images/Java-Developer-Wide.jpg"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/Javacoke"
