@@ -10,7 +10,7 @@
 # Review documentation to determine if you should use `theme` or `remote_theme`
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
-# theme                  : "minimal-mistakes-jekyll"
+theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "dirt" # "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
@@ -113,7 +113,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Java BackEnd 9차수 디비디비조"
+  name             :  "디비디비조<br>고하원<br>김재윤<br>박기웅<br>신건<br>이현빈"
   avatar           : "/assets/images/Java-Developer-Wide.jpg"
   bio              : "return studying"
   location         : "Korea"
@@ -133,7 +133,7 @@ author:
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/Santiago-kwp"
+      url: "https://github.com/Santiago-kwp/santiago-kwp.github.io"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
