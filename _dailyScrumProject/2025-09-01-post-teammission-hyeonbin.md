@@ -1,5 +1,5 @@
 ---
-title: "1차 팀미션 구현 내용 정리"
+title: "1차 팀미션 구현 내용 정리(이현빈)"
 excerpt: 학생 성적 입력, 정렬, 출력 기능까지 구현했습니다.
 date: 2025-09-01
 author: hyeonbin-lee
