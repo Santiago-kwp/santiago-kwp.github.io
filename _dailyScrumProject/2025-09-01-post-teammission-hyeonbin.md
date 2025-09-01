@@ -79,10 +79,24 @@ layout: single
 
 ![teammission-input-hyeonbin.png](/assets/images/teammission-input-hyeonbin.png)
 
+
+![teammission-input-result-hyeonbin.png](/assets/images/teammission-input-result-hyeonbin.png)
+
+
 ### 2. 학생 점수 출력(콘솔창)
 
 ![teammission-output-hyeonbin.png](/assets/images/teammission-output-hyeonbin.png)
 
+
 ### 3. 학생 점수 정렬 후 TreeSet을 orderByAvg.dat 파일에 저장
 
 ![teammission-sort-hyeonbin.png](/assets/images/teammission-sort-hyeonbin.png)
+
+
+### 4. 기존 파일에 이어서 작성
+
+- 이미 `student.dat` 파일이 존재할 경우 이전 내용 뒤에 이어서 저장
+
+![teammission-append-hyeonbin.png](/assets/images/teammission-append-hyeonbin.png)
+
+![teammission-append-hyeonbin-2.png](/assets/images/teammission-append-hyeonbin-2.png)
