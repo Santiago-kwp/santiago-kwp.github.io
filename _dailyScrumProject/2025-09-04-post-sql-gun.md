@@ -2,7 +2,7 @@
 title: "[SQL] 혼공단 (신건)"
 excerpt: "프로그래머스 SQL SELECT lev1 풀이입니다."
 date: 2025-09-04
-author: gun-sin
+author: Gun-Sin
 author_profile: true
 layout: single
 ---
