@@ -266,7 +266,7 @@ order by c.name;
 select name
 from customer
 where custid in (
-	select custid
+    select custid
     from orders
 )
 
