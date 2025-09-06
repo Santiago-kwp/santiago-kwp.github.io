@@ -34,9 +34,9 @@ enable_copy_code_button  : # true, false (default)
 copyright                : # "copyright" name, defaults to site.title
 copyright_url            : # "copyright" URL, defaults to site.url
 comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
+  provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
   disqus:
-    shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+    shortname            : "santiago-kwp" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -342,9 +342,26 @@ defaults:
       sidebar:
         nav: "dailyScrumProject"
 
+  # _hawon-ko
+  - scope:
+      path: ""
+      type: hawon-ko
+    values:
+      layout: single
+      author_profile: true
+      show_date: true
+      date_format: "%Y-%m-%d %H"
+      share: true
+      comments: true
+      sidebar:
+        nav: "hawon-ko"
 
 # Collections configuration
 collections:
   dailyScrumProject:
+    output: true
+    permalink: /:collection/:name/
+  # 고하원 탭 신설
+  hawon-ko:
     output: true
     permalink: /:collection/:name/
