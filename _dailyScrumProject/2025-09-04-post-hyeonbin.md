@@ -149,7 +149,7 @@ select
 	ut_b.id as 직속상사ID, 
 	ut_b.name as 직속상사
 from ugaga_tribes ut_a 
-	left join ugaga_tribes ut_b on ut_a.classes_id = ut_b.id;테이블에서의 집합연산
+	left join ugaga_tribes ut_b on ut_a.classes_id = ut_b.id;
 ```
 
 ---
@@ -200,7 +200,6 @@ from ugaga_tribes ut_a
 
 - 서브쿼리의 조건을 충족시키는 메인 쿼리의 행을 메인 쿼리의 결과 테이블에 포함시키는 연산
 - select문의 `where` 절이나 테이블 조인의 `on` 절 등에서 활용
-- 메인 쿼리의 행
 - 상관부속질의(= 연관 서브 쿼리)
   1. 메인 쿼리의 각 행마다 서브 쿼리의 조건을 충족하는지 확인
      - a. 서브쿼리의 `where`절에서는 메인 쿼리 테이블의 속성과 서브쿼리 테이블의 속성에 관한 조건을 설정
@@ -267,7 +266,7 @@ order by c.name;
 select name
 from customer
 where custid in (
-	select custid
+    select custid
     from orders
 )
 
