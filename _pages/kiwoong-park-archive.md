@@ -1,8 +1,8 @@
 ---
-title: "Daily 스크럼 공통"
-permalink: /dailyScrumProject/
+title: "박기웅 Daily 스크럼"
+permalink: /kiwoong-park/
 layout: collection
-collection: dailyScrumProject
+collection: kiwoong-park
 entries_layout: list
 author_profile: true
 classes: wide

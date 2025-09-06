@@ -22,7 +22,7 @@ title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Java-BackEnd"
 description              : "An website for Java BackEnd programmers"
-url                      : "htttps://santiago-kwp.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : "https://santiago-kwp.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "https://github.com/Santiago-kwp/santiago-kwp.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -355,6 +355,62 @@ defaults:
       comments: true
       sidebar:
         nav: "hawon-ko"
+  # _jaeyun-kim
+  - scope:
+      path: ""
+      type: jaeyun-kim
+    values:
+      layout: single
+      author_profile: true
+      show_date: true
+      date_format: "%Y-%m-%d %H"
+      share: true
+      comments: true
+      sidebar:
+        nav: "jaeyun-kim"
+
+  # _kiwoong-park
+  - scope:
+      path: ""
+      type: kiwoong-park
+    values:
+      layout: single
+      author_profile: true
+      show_date: true
+      date_format: "%Y-%m-%d %H"
+      share: true
+      comments: true
+      sidebar:
+        nav: "kiwoong-park"
+  # _hyeonbin-lee
+  - scope:
+      path: ""
+      type: hyeonbin-lee
+    values:
+      layout: single
+      author_profile: true
+      show_date: true
+      date_format: "%Y-%m-%d %H"
+      share: true
+      comments: true
+      sidebar:
+        nav: "hyeonbin-lee"
+  # _gun-sin
+  - scope:
+      path: ""
+      type: gun-sin
+    values:
+      layout: single
+      author_profile: true
+      show_date: true
+      date_format: "%Y-%m-%d %H"
+      share: true
+      comments: true
+      sidebar:
+        nav: "gun-sin"
+
+
+
 
 # Collections configuration
 collections:
@@ -365,3 +421,20 @@ collections:
   hawon-ko:
     output: true
     permalink: /:collection/:name/
+  # 김재윤 탭 신설
+  jaeyun-kim:
+    output: true
+    permalink: /:collection/:name/
+  # 박기웅 탭 신설
+  kiwoong-park:
+    output: true
+    permalink: /:collection/:name/
+  # 이현빈 탭 신설
+  hyeonbin-lee:
+    output: true
+    permalink: /:collection/:name/
+  # 신건 탭 신설
+  gun-sin:
+    output: true
+    permalink: /:collection/:name/
+

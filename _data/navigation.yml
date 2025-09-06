@@ -6,7 +6,15 @@ main:
   #  url: https://mmistakes.github.io/minimal-mistakes/about/
   - title: "고하원"
     url: /hawon-ko/
-  - title: "Daily 스크럼 프로젝트"
+  - title: "김재윤"
+    url: /jaeyun-kim/
+  - title: "박기웅"
+    url: /kiwoong-park/
+  - title: "이현빈"
+    url: /hyeonbin-lee/
+  - title: "신건"
+    url: /gun-sin/
+  - title: "Daily 스크럼 공통"
     url: /dailyScrumProject/
   # - title: "Sample Collections"
   #   url: /collection-archive/
