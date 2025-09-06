@@ -1,8 +1,8 @@
 ---
-title: "Daily 스크럼 공통"
-permalink: /dailyScrumProject/
+title: "신건 Daily 스크럼"
+permalink: /gun-sin/
 layout: collection
-collection: dailyScrumProject
+collection: gun-sin
 entries_layout: list
 author_profile: true
 classes: wide

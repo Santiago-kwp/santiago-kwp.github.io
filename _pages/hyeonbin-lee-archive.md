@@ -1,8 +1,8 @@
 ---
-title: "Daily 스크럼 공통"
-permalink: /dailyScrumProject/
+title: "이현빈 Daily 스크럼"
+permalink: /hyeonbin-lee/
 layout: collection
-collection: dailyScrumProject
+collection: hyeonbin-lee
 entries_layout: list
 author_profile: true
 classes: wide

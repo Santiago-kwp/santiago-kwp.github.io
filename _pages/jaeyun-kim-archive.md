@@ -1,8 +1,8 @@
 ---
-title: "Daily 스크럼 공통"
-permalink: /dailyScrumProject/
+title: "김재윤 Daily 스크럼"
+permalink: /jaeyun-kim/
 layout: collection
-collection: dailyScrumProject
+collection: jaeyun-kim
 entries_layout: list
 author_profile: true
 classes: wide
