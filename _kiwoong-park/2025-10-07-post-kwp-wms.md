@@ -20,13 +20,13 @@ layout: single
 │   ├── 📜ErrorCode.java
 ├── 📂controller
 │   └── 📂command
-│		│   ├── 📜Command.java (interface)
-│		│   ├── 📜AbstractInboundCommand.java (abstract class)
-│		│		├── 📂inbound
-│		│		│		├── 📜RequestInboundCommand.java
-│		│		│		├── 📜ApproveInboundCommand.java
-│		│		│		└── 📜...otherCommands.java
-│		│		└── 📂outbound
+│	│   ├── 📜Command.java (interface)
+│	│   ├── 📜AbstractInboundCommand.java (abstract class)
+│	│	├── 📂inbound
+│	│	│	├── 📜RequestInboundCommand.java
+│	│	│	├── 📜ApproveInboundCommand.java
+│	│	│	└── 📜...otherCommands.java
+│	│	└── 📂outbound
 │   └── 📜InboundController.java
 │   └── 📜OutboundController.java
 ├── 📂domain
@@ -88,11 +88,11 @@ layout: single
 
 ### 회원의 입고 요청부터 관리자의 입고 요청 승인까지
 
-https://youtu.be/KJdi79njujo
+<iframe width="1337" height="752" src="https://www.youtube.com/embed/KJdi79njujo" title="WMS CLI (JAVA +MySQL) 프로젝트 - 회원의 입고요청 부터 관리자의 입고 요청 승인" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### 회원의 출고 요청부터 관리자의 출고 요청 승인까지
 
-https://youtu.be/-1VHzft9orc
+<iframe width="1337" height="752" src="https://www.youtube.com/embed/KJdi79njujo" title="WMS CLI (JAVA +MySQL) 프로젝트 - 회원의 입고요청 부터 관리자의 입고 요청 승인" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## 입고 요청 처리 (Jackson 라이브러리 적용 Json 파싱)
 
@@ -667,9 +667,42 @@ public class ApproveInboundCommand extends AbstractInboundCommand {
 
 ## 예외처리 요약
 
-| **계층** | **던지는 주요 예외 (Throws)** | **잡는 주요 예외 (Catches)** | **예외 처리의 핵심 역할** |
-| --- | --- | --- | --- |
-| **View / Handler** | ValidationException, IOException | ValidationException | **입력값 형식 검증** 및 재입력 유도 |
-| **DAO** | SQLException | (없음) | DB 오류를 서비스 계층에 **정확히 보고** |
-| **Service** | TransactionException, SQLException | SQLException, TransactionException | **트랜잭션 관리** (롤백) 및 **비즈니스 규칙 강제** |
-| **Command / Controller** | (없음) | Exception (모든 예외) | 모든 예외의 **최종 처리** 및 사용자에게 오류 메시지 표시 |
+<table style="width: 100%; border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th style="width: 15%; border: 1px solid #ccc; padding: 8px; text-align: center; background-color: #f2f2f2;">계층</th>
+      <th style="width: 30%; border: 1px solid #ccc; padding: 8px; text-align: center; background-color: #f2f2f2;">던지는 주요 예외 (Throws)</th>
+      <th style="width: 30%; border: 1px solid #ccc; padding: 8px; text-align: center; background-color: #f2f2f2;">잡는 주요 예외 (Catches)</th>
+      <th style="width: 25%; border: 1px solid #ccc; padding: 8px; text-align: center; background-color: #f2f2f2;">예외 처리의 핵심 역할</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="width: 15%; border: 1px solid #ccc; padding: 8px; text-align: center;">View / Handler</td>
+      <td style="width: 30%; border: 1px solid #ccc; padding: 8px;">ValidationException, IOException</td>
+      <td style="width: 30%; border: 1px solid #ccc; padding: 8px;">ValidationException</td>
+      <td style="width: 25%; border: 1px solid #ccc; padding: 8px;">입력값 형식 검증 및 재입력 유도</td>
+    </tr>
+    <tr>
+      <td style="width: 15%; border: 1px solid #ccc; padding: 8px; text-align: center;">DAO</td>
+      <td style="width: 30%; border: 1px solid #ccc; padding: 8px;">SQLException</td>
+      <td style="width: 30%; border: 1px solid #ccc; padding: 8px;">(없음)</td>
+      <td style="width: 25%; border: 1px solid #ccc; padding: 8px;">DB 오류를 서비스 계층에 정확히 보고</td>
+    </tr>
+    <tr>
+      <td style="width: 15%; border: 1px solid #ccc; padding: 8px; text-align: center;">Service</td>
+      <td style="width: 30%; border: 1px solid #ccc; padding: 8px;">TransactionException, SQLException</td>
+      <td style="width: 30%; border: 1px solid #ccc; padding: 8px;">SQLException, TransactionException</td>
+      <td style="width: 25%; border: 1px solid #ccc; padding: 8px;">트랜잭션 관리 (롤백) 및 비즈니스 규칙 강제</td>
+    </tr>
+    <tr>
+      <td style="width: 15%; border: 1px solid #ccc; padding: 8px; text-align: center;">Command / Controller</td>
+      <td style="width: 30%; border: 1px solid #ccc; padding: 8px;">(없음)</td>
+      <td style="width: 30%; border: 1px solid #ccc; padding: 8px;">Exception (모든 예외)</td>
+      <td style="width: 25%; border: 1px solid #ccc; padding: 8px;">모든 예외의 최종 처리 및 사용자에게 오류 메시지 표시</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
