@@ -580,6 +580,7 @@ public class ApproveInboundCommand extends AbstractInboundCommand {
     ```
     
     - 새로운 입고 요청 날짜를 입력받는 메소드와 기간별 조회 등 비지니스 규칙이 없는 범용 날짜를 입력받는 메소드를 별도 정의
+    - 단일 책임 원칙을 지키자 (처음에는 한 메소드에 날짜 유효성과 입고 요청 날짜의 유효성을 검사하는 하나의 메소드를 정의하였으나, 날짜 유효성만 필요한 경우가 생김 : ex. 기간별 조회) -> 이 경우 기존의 메소드를 재사용할 수 없게 되었다.)
         
         ```java
             /**
@@ -671,35 +672,35 @@ public class ApproveInboundCommand extends AbstractInboundCommand {
   <thead>
     <tr>
       <th style="width: 15%; border: 1px solid #ccc; padding: 8px; text-align: center; background-color: #f2f2f2;">계층</th>
-      <th style="width: 30%; border: 1px solid #ccc; padding: 8px; text-align: center; background-color: #f2f2f2;">던지는 주요 예외 (Throws)</th>
-      <th style="width: 30%; border: 1px solid #ccc; padding: 8px; text-align: center; background-color: #f2f2f2;">잡는 주요 예외 (Catches)</th>
-      <th style="width: 25%; border: 1px solid #ccc; padding: 8px; text-align: center; background-color: #f2f2f2;">예외 처리의 핵심 역할</th>
+      <th style="width: 25%; border: 1px solid #ccc; padding: 8px; text-align: center; background-color: #f2f2f2;">던지는 주요 예외 (Throws)</th>
+      <th style="width: 25%; border: 1px solid #ccc; padding: 8px; text-align: center; background-color: #f2f2f2;">잡는 주요 예외 (Catches)</th>
+      <th style="width: 35%; border: 1px solid #ccc; padding: 8px; text-align: center; background-color: #f2f2f2;">예외 처리의 핵심 역할</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="width: 15%; border: 1px solid #ccc; padding: 8px; text-align: center;">View / Handler</td>
-      <td style="width: 30%; border: 1px solid #ccc; padding: 8px;">ValidationException, IOException</td>
-      <td style="width: 30%; border: 1px solid #ccc; padding: 8px;">ValidationException</td>
-      <td style="width: 25%; border: 1px solid #ccc; padding: 8px;">입력값 형식 검증 및 재입력 유도</td>
+      <td style="width: 25%; border: 1px solid #ccc; padding: 8px;">ValidationException, IOException</td>
+      <td style="width: 25%; border: 1px solid #ccc; padding: 8px;">ValidationException</td>
+      <td style="width: 35%; border: 1px solid #ccc; padding: 8px;">입력값 형식 검증 및 재입력 유도</td>
     </tr>
     <tr>
       <td style="width: 15%; border: 1px solid #ccc; padding: 8px; text-align: center;">DAO</td>
-      <td style="width: 30%; border: 1px solid #ccc; padding: 8px;">SQLException</td>
-      <td style="width: 30%; border: 1px solid #ccc; padding: 8px;">(없음)</td>
-      <td style="width: 25%; border: 1px solid #ccc; padding: 8px;">DB 오류를 서비스 계층에 정확히 보고</td>
+      <td style="width: 25%; border: 1px solid #ccc; padding: 8px;">SQLException</td>
+      <td style="width: 25%; border: 1px solid #ccc; padding: 8px;">(없음)</td>
+      <td style="width: 35%; border: 1px solid #ccc; padding: 8px;">DB 오류를 서비스 계층에 정확히 보고</td>
     </tr>
     <tr>
       <td style="width: 15%; border: 1px solid #ccc; padding: 8px; text-align: center;">Service</td>
-      <td style="width: 30%; border: 1px solid #ccc; padding: 8px;">TransactionException, SQLException</td>
-      <td style="width: 30%; border: 1px solid #ccc; padding: 8px;">SQLException, TransactionException</td>
-      <td style="width: 25%; border: 1px solid #ccc; padding: 8px;">트랜잭션 관리 (롤백) 및 비즈니스 규칙 강제</td>
+      <td style="width: 25%; border: 1px solid #ccc; padding: 8px;">TransactionException, SQLException</td>
+      <td style="width: 25%; border: 1px solid #ccc; padding: 8px;">SQLException, TransactionException</td>
+      <td style="width: 35%; border: 1px solid #ccc; padding: 8px;">트랜잭션 관리 (롤백) 및 비즈니스 규칙 강제</td>
     </tr>
     <tr>
       <td style="width: 15%; border: 1px solid #ccc; padding: 8px; text-align: center;">Command / Controller</td>
-      <td style="width: 30%; border: 1px solid #ccc; padding: 8px;">(없음)</td>
-      <td style="width: 30%; border: 1px solid #ccc; padding: 8px;">Exception (모든 예외)</td>
-      <td style="width: 25%; border: 1px solid #ccc; padding: 8px;">모든 예외의 최종 처리 및 사용자에게 오류 메시지 표시</td>
+      <td style="width: 25%; border: 1px solid #ccc; padding: 8px;">(없음)</td>
+      <td style="width: 25%; border: 1px solid #ccc; padding: 8px;">Exception (모든 예외)</td>
+      <td style="width: 35%; border: 1px solid #ccc; padding: 8px;">모든 예외의 최종 처리 및 사용자에게 오류 메시지 표시</td>
     </tr>
   </tbody>
 </table>
