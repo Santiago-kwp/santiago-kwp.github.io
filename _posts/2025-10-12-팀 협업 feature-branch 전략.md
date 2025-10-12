@@ -1,12 +1,14 @@
 ---
-title: "feature-branch 전략 (with issue 사용하기)"
+title: "Git 협업 : feature-branch 전략 (with issue 사용하기)"
 excerpt: "git으로 팀 협업을 위한 feature-branch 전략입니다."
 date: 2025-10-12
 author: kiwoong-park
 author_profile: true
 layout: single
 ---
-## 참조 영상
+## Git feature-branch 전략
+
+### 참조 영상
 <iframe width="930" height="522" src="https://www.youtube.com/embed/qJOfzcMG_hs" title="깃&깃헙 브랜치 3개로 협업하기(주니어개발자 팀프로젝트)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### 기본 세팅
@@ -107,3 +109,77 @@ git push --set-upstream origin feat/로그인창
 ### ⚠️ (중요) 항상 내 로컬에 있는 develop와 원격에 있는 develop가  똑같은지 로컬이 최신 상태인지 `git fetch` 로 확인하자
 
 ### ‼️ (중요) `git pull` 은 항상 `develop` 브랜치에서 한다
+
+---
+
+### 🧩 있을 법한 상황 : develop 브랜치에서 작업하기?!
+
+- 원래는 `develop` 브랜치에서 `feat` 브랜치를 만들고 작업하려 했는데
+- 실수로 `develop` 브랜치에서 작업(커밋 or 작업만)을 해버렸어
+- 이제 그 커밋들을 `feat` 브랜치로 옮기고 싶어
+
+---
+
+### ✅ 해결 방법: `git switch` + `git cherry-pick`
+
+### 1️⃣ feat 브랜치 생성
+
+```bash
+git switch -c feat
+
+```
+
+- 현재 커밋된 상태에서 `feat` 브랜치를 새로 만듦
+
+### 2️⃣ develop 브랜치로 돌아가서 커밋 로그 확인
+
+```bash
+git switch develop
+git log
+
+```
+
+- 실수로 develop에 커밋한 커밋 해시를 확인 (예: `abc123`)
+### 3️⃣ feat 브랜치로 돌아가서 cherry-pick
+
+```bash
+git switch feat
+git cherry-pick abc123
+
+```
+
+- 해당 커밋을 `feat` 브랜치로 복사함
+
+### 4️⃣ develop 브랜치에서 커밋 되돌리기 (선택)
+
+```bash
+git switch develop
+git reset --hard HEAD~1
+
+```
+
+- 실수로 커밋한 내용을 되돌림 (주의: `-hard`는 변경사항을 삭제하므로 백업 필요!)
+
+---
+
+### 🧠 대안: `git stash` + `git switch`
+
+만약 커밋하지 않고 작업만 했던 경우라면:
+```bash
+git stash
+git switch feat
+git stash pop
+
+```
+
+- 작업 내용을 `feat` 브랜치로 옮길 수 있다.
+
+---
+
+### 📌 요약
+
+| 상황 | 해결 방법 |
+| --- | --- |
+| 커밋까지 했음 | `cherry-pick`으로 feat 브랜치에 복사 |
+| 커밋 안 했음 | `stash`로 feat 브랜치에 옮기기 |
+| develop에서 커밋 제거 | `reset` 또는 `revert` 사용 |
