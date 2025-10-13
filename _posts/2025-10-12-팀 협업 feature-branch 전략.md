@@ -1,14 +1,34 @@
 ---
-title: "Git 협업 : feature-branch 전략 (with issue 사용하기)"
+title: "Git, Github을 활용한 협업 방법 (with organization, project, issue 사용하기)"
 excerpt: "git으로 팀 협업을 위한 feature-branch 전략입니다."
 date: 2025-10-12
 author: kiwoong-park
 author_profile: true
 layout: single
 ---
+## Github organization 및 프로젝트 만들어서 협업하기
+### 참조 영상
+<iframe width="930" height="522" src="https://www.youtube.com/embed/6sBNPvxjyt0" title="GitHub으로 협업하기 1편 - 깃헙 프로젝트 생성, 이슈 생성, 충돌 해결까지" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+### 깃헙으로 프로젝트 진행 프로세스 요약!
+---
+1. github organization 만들기
+2. github project 만들기 -> project board가 생긴다.
+3. issue에 프로젝트에서 개발할 아이템을 전부 나열한다. (assignee, Labels, project 선택)
+4. github flow 전략을 사용한다. (main - dev - feature branch)
+---
+5. dev 브랜치를 최신화하고 feature branch를 생성해서 변경한다.
+6. Feature branch에서 PR 날리기 (closes #라벨번호 넣기) 및 코드 리뷰 
+7. approve 시 => confirm merge => delete branch (원격 및 로컬 둘 다!)
+---
+8. 3번에서 생성한 개발할 아이템을 다 완료할때까지 5번에서 7번을 반복한다!!!
+
+
+
 ## Git feature-branch 전략
 
 ### 참조 영상
+
 <iframe width="930" height="522" src="https://www.youtube.com/embed/qJOfzcMG_hs" title="깃&깃헙 브랜치 3개로 협업하기(주니어개발자 팀프로젝트)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### 기본 세팅
