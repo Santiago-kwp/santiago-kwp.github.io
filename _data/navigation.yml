@@ -4,17 +4,21 @@ main:
   #  url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   # - title: "About"
   #  url: https://mmistakes.github.io/minimal-mistakes/about/
-  - title: "고하원"
+  - title: '고하원'
     url: /hawon-ko/
-  - title: "김재윤"
+  - title: '김다혜'
+    url: /dahye-kim/
+  - title: '김재윤'
     url: /jaeyun-kim/
-  - title: "박기웅"
+  - title: '박기웅'
     url: /kiwoong-park/
-  - title: "이현빈"
+  - title: '이현빈'
     url: /hyeonbin-lee/
-  - title: "신건"
+  - title: '신건'
     url: /gun-sin/
-  - title: "Daily 스크럼 공통"
+  - title: '전예원'
+    url: /yewon-jeon/
+  - title: 'Daily 스크럼 공통'
     url: /dailyScrumProject/
   # - title: "Sample Collections"
   #   url: /collection-archive/
