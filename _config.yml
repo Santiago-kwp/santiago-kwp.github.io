@@ -17,7 +17,7 @@ minimal_mistakes_skin    : "dirt" # "default", "air", "aqua", "contrast", "dark"
 # Site Settings
 locale                   : "ko-KR"#"en-US"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
-title                    : "JAVA 백앤드 9차수 디비디비조.log"
+title                    : "JAVA 백앤드 9차수 1팀.log"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Java-BackEnd"
@@ -113,7 +113,7 @@ analytics:
 
 # Site Author
 author:
-  name             :  "디비디비조<br>고하원<br>김재윤<br>박기웅<br>신건<br>이현빈"
+  name             :  "9차수 1팀<br>고하원<br>김다혜<br>박기웅<br>신건<br>이현빈<br>전예원"
   avatar           : "/assets/images/Java-Developer-Wide.jpg"
   bio              : "return studying"
   location         : "Korea"
@@ -355,6 +355,19 @@ defaults:
       comments: true
       sidebar:
         nav: "hawon-ko"
+  # _dahye-kim
+  - scope:
+      path: ""
+      type: dahye-kim
+    values:
+      layout: single
+      author_profile: true
+      show_date: true
+      date_format: "%Y-%m-%d %H"
+      share: true
+      comments: true
+      sidebar:
+        nav: "dahye-kim"
   # _jaeyun-kim
   - scope:
       path: ""
@@ -408,6 +421,19 @@ defaults:
       comments: true
       sidebar:
         nav: "gun-sin"
+  # _yewon-jeon
+  - scope:
+      path: ""
+      type: yewon-jeon
+    values:
+      layout: single
+      author_profile: true
+      show_date: true
+      date_format: "%Y-%m-%d %H"
+      share: true
+      comments: true
+      sidebar:
+        nav: "yewon-jeon"
 
 
 
@@ -419,6 +445,10 @@ collections:
     permalink: /:collection/:name/
   # 고하원 탭 신설
   hawon-ko:
+    output: true
+    permalink: /:collection/:name/
+  # 김다혜 탭 신설
+  dahye-kim:
     output: true
     permalink: /:collection/:name/
   # 김재윤 탭 신설
@@ -435,6 +465,10 @@ collections:
     permalink: /:collection/:name/
   # 신건 탭 신설
   gun-sin:
+    output: true
+    permalink: /:collection/:name/
+  # 전예원 탭 신설
+  yewon-jeon:
     output: true
     permalink: /:collection/:name/
 

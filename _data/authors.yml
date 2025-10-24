@@ -1,45 +1,62 @@
 # 작성자1
 kiwoong-park:
-  name : "박기웅"
-  avatar : "/assets/images/Java-Developer-Wide.jpg"
+  name: '박기웅'
+  avatar: '/assets/images/Java-Developer-Wide.jpg'
   links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/Santiago-kwp"
+    - label: 'GitHub'
+      icon: 'fab fa-fw fa-github'
+      url: 'https://github.com/Santiago-kwp'
 
 # 작성자2
 hyeonbin-lee:
-  name : "이현빈"
-  avatar : "/assets/images/Java-Developer-Wide.jpg"
+  name: '이현빈'
+  avatar: '/assets/images/Java-Developer-Wide.jpg'
   links:
-   - label: "GitHub"
-     icon: "fab fa-fw fa-github"
-     url: "https://github.com/Hyeonbin2379"
+    - label: 'GitHub'
+      icon: 'fab fa-fw fa-github'
+      url: 'https://github.com/Hyeonbin2379'
 
 # 작성자3
 hawon-ko:
-  name : "고하원"
-  avatar : "/assets/images/Java-Developer-Wide.jpg"
+  name: '고하원'
+  avatar: '/assets/images/Java-Developer-Wide.jpg'
   links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/nowah00"
-      
+    - label: 'GitHub'
+      icon: 'fab fa-fw fa-github'
+      url: 'https://github.com/nowah00'
+
 # 작성자4
 jaeyun-kim:
-  name : "김재윤"
-  avatar: "/assets/images/Java-Developer-Wide.jpg"
+  name: '김재윤'
+  avatar: '/assets/images/Java-Developer-Wide.jpg'
   links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/jaeyunew"
-
+    - label: 'GitHub'
+      icon: 'fab fa-fw fa-github'
+      url: 'https://github.com/jaeyunew'
 
 # 작성자5
 gun-sin:
-  name: "신건"
-  avatar: "/assets/images/Java-Developer-Wide.jpg"
+  name: '신건'
+  avatar: '/assets/images/Java-Developer-Wide.jpg'
   links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/Javacoke"
+    - label: 'GitHub'
+      icon: 'fab fa-fw fa-github'
+      url: 'https://github.com/Javacoke'
+
+# 작성자6
+yewon-jeon:
+  name: '전예원'
+  avatar: '/assets/images/Java-Developer-Wide.jpg'
+  links:
+    - label: 'GitHub'
+      icon: 'fab fa-fw fa-github'
+      url: 'https://github.com/dhkdxh'
+
+# 작성자7
+dahye-kim:
+  name: '김다혜'
+  avatar: '/assets/images/Java-Developer-Wide.jpg'
+  links:
+    - label: 'GitHub'
+      icon: 'fab fa-fw fa-github'
+      url: 'https://github.com/Dahye021'
