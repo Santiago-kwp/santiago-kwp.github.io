@@ -1,5 +1,5 @@
 ---
-title: "[WEB] HTTP 분석 및 이해 : 1. Internet network Basic (박기웅)
+title: "[WEB] HTTP 분석 및 이해 : 1. Internet network Basic (박기웅)"
 excerpt: "백엔드 개발자의 기본 소양을 차곡차곡 쌓아봅시다"
 date: 2025-10-25
 author: kiwoong-park
