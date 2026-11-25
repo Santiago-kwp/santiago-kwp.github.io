@@ -113,6 +113,17 @@
             <a href="#">Posts</a>
             <ul class="dl-submenu">
                 <li><a href="{{ site.url }}/posts/">All Posts</a></li>
+                {% assign sorted_categories = site.categories | sort %}
+                {% for category in sorted_categories %}
+                {% assign category_posts = category[1] | where_exp: "post", "post.project == nil" %}
+                {% if category_posts.size > 0 %}
+                <li>
+                    <a href="{{ site.url }}/posts/#{{ category[0] | slugify }}">
+                        {{ category[0] | replace: '-', ' ' | capitalize }} ({{ category_posts.size }})
+                    </a>
+                </li>
+                {% endif %}
+                {% endfor %}
                 <li><a href="{{ site.url }}/tags/">All Tags</a></li>
             </ul>
         </li>

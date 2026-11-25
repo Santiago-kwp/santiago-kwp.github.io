@@ -47,6 +47,24 @@ layout: compress
                 </h3>
             </div>
         </div>
+        {% assign sorted_categories = site.categories | sort %}
+        <aside class="home-categories" aria-label="포스트 주제별 목록">
+            <h2>주제별 포스트</h2>
+            <ul>
+                {% for category in sorted_categories %}
+                {% assign category_posts = category[1] | where_exp: "post", "post.project == nil" %}
+                {% if category_posts.size > 0 %}
+                <li>
+                    <a href="{{ site.url }}/posts/#{{ category[0] | slugify }}">
+                        {{ category[0] | replace: '-', ' ' | capitalize }}
+                        <span>{{ category_posts.size }}</span>
+                    </a>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            <a class="home-categories-all" href="{{ site.url }}/posts/">전체 포스트 보기</a>
+        </aside>
     </header>
     {% include scripts.html %}
 </body>

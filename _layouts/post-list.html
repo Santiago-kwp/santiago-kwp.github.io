@@ -22,17 +22,36 @@ layout: compress
                     </a>
                 </div>
                 <div class="post-list">
-                    {% for post in site.posts %} 
-                        {% if post.project == null %}
+                    {% assign sorted_categories = site.categories | sort %}
+                    {% for category in sorted_categories %}
+                        {% assign category_posts = category[1] | where_exp: "post", "post.project == nil" %}
+                        {% if category_posts.size > 0 %}
+                    <h2 id="{{ category[0] | slugify }}">{{ category[0] | replace: '-', ' ' | capitalize }}</h2>
                     <ul>
+                            {% for post in category_posts %}
                         <li class="wow fadeInLeft" data-wow-duration="1.5s">
                             <a class="zoombtn" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
                             <p>{{ post.excerpt }}</p>
                             <a href="{{ site.url }}{{ post.url }}" class="btn zoombtn">Read More</a>
                         </li>
+                            {% endfor %}
                     </ul>
                         {% endif %}
                     {% endfor %}
+
+                    {% assign uncategorized_posts = site.posts | where_exp: "post", "post.categories.size == 0" | where_exp: "post", "post.project == nil" %}
+                    {% if uncategorized_posts.size > 0 %}
+                    <h2>Uncategorized</h2>
+                    <ul>
+                        {% for post in uncategorized_posts %}
+                        <li class="wow fadeInLeft" data-wow-duration="1.5s">
+                            <a class="zoombtn" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+                            <p>{{ post.excerpt }}</p>
+                            <a href="{{ site.url }}{{ post.url }}" class="btn zoombtn">Read More</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
                 </div>
             </div>
         </div>

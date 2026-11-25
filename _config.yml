@@ -1,14 +1,14 @@
 # Site
-title: Moonrise
-bio: "Minimal, one column jekyll theme."
-description: "Moonrise is a fresh take on the classic Moon"
+title: Santiago Tech Blog
+bio: "Python · Computer Vision · Hydrology"
+description: "개발 기록 및 기술 정리 블로그"
 reading_time: true
 words_per_minute: 200
 logo: "assets/img/logo.png"
 background: "assets/img/moonrise-background.jpg"
 tiled_bg: false # Set this true if you want to tile your background image, otherwise it will be covered
-locale: en_US
-url: https://TolgaTatli.github.io/Moonrise
+locale: ko_KR
+url: https://santiago-kwp.github.io
 
 # Jekyll
 permalink: /:title/
@@ -36,20 +36,17 @@ sass:
 #ad-client:
 #ad-slot:
 #bing-verify:
-#email:
-twitter: username
-facebook: username
-github-url: username
+email: pgw10243@gmail.com
+github-url: Santiago-kwp
+google-scholar: Ciol1DAAAAAJ&hl
 #stackoverflow: 123456/username   from a "http://stackoverflow.com/users/123456/username" link
 #linkedin: username
 #xing: username
-instagram: username
 #lastfm: username
 #tumblr: username
 #medium: '@username'
 #pinterest: username
 #foursquare: username
-steam: username
 #dribbble: username
 #youtube: username
 #youtube-channel: channel
@@ -77,6 +74,8 @@ jekyll-mentions:
 # Exclude list
 exclude:
   [
+    .git,
+    .sass-cache,
     README.md,
     Gemfile,
     Gemfile.lock,
