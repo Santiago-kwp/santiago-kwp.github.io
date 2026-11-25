@@ -26,7 +26,8 @@ layout: compress
                     {% for category in sorted_categories %}
                         {% assign category_posts = category[1] | where_exp: "post", "post.project == nil" %}
                         {% if category_posts.size > 0 %}
-                    <h2 id="{{ category[0] | slugify }}">{{ category[0] | replace: '-', ' ' | capitalize }}</h2>
+                        {% assign category_label_key = category[0] %}
+                    <h2 id="{{ category[0] | slugify }}">{% include category-label.html category=category_label_key %}</h2>
                     <ul>
                             {% for post in category_posts %}
                         <li class="wow fadeInLeft" data-wow-duration="1.5s">

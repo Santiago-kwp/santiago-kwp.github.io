@@ -4,7 +4,8 @@ title: Python 코드 실행과 메모리에 올라가기까지의 과정
 categories: [python]
 tags: [python code execution, memory]
 ---
-> [velog-원문](https://velog.io/@qlgks1/python-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B4%80%EB%A6%AC-memory-optimization) 참조하여 파이썬 코드 실행 시 일어나는 일에 대해서 학습한 내용 정리
+
+> 파이썬 코드 실행 시 실제로 어떤 과정들이 일어나는지 하나씩 알아보자
 
 
 ## Python 코드 실행과 메모리에 올라가기까지 
@@ -67,3 +68,7 @@ tags: [python code execution, memory]
 - 추가로 "프로즌 바이너리"는 작성한 파이썬 프로그램을 실행 파일(.exe)로 변환 하는 것 또한 가능하다.
     - PyInstaller, py2exe, py2app 등을 통해서 "실행 가능한 바이너리"로 만들 수 있다.
 - 프로즌 바이너리를 만들 때에는 바이트 코드와, 실행 환경(PVM), 그리고 의존성 모듈을 단일 패키지로 만들고 결과물은 실행 가능한 형태(.exe)가 된다.
+
+
+[참조자료]
+- [velog-원문](https://velog.io/@qlgks1/python-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B4%80%EB%A6%AC-memory-optimization)

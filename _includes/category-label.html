@@ -1,0 +1,6 @@
+{%- case include.category -%}
+{%- when 'cv' -%}ComputerVision
+{%- when 'ui_ux' -%}UI/UX
+{%- else -%}
+{{ include.category | replace: '-', ' ' | capitalize }}
+{%- endcase -%}
