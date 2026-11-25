@@ -17,6 +17,42 @@
       ga('send', 'pageview');
     </script>
     {% endif %}
+    <footer class="site-visitor-count" aria-label="사이트 전체 페이지뷰">
+        <span>누적 페이지뷰</span>
+        <strong id="site-visitor-count-value" aria-live="polite">불러오는 중...</strong>
+    </footer>
+    <script>
+        (function () {
+            var countElement = document.getElementById('site-visitor-count-value');
+            var goatCounterScript = document.querySelector('script[data-goatcounter]');
+
+            if (!countElement || !goatCounterScript) {
+                console.error('Unable to find the GoatCounter count element or script.');
+                return;
+            }
+
+            var countEndpoint = goatCounterScript.getAttribute('data-goatcounter')
+                .replace(/\/count\/?$/, '/counter/TOTAL.json');
+
+            fetch(countEndpoint)
+                .then(function (response) {
+                    if (!response.ok) {
+                        throw new Error('GoatCounter returned HTTP ' + response.status);
+                    }
+                    return response.json();
+                })
+                .then(function (data) {
+                    if (typeof data.count !== 'string') {
+                        throw new Error('GoatCounter returned an invalid count.');
+                    }
+                    countElement.textContent = data.count;
+                })
+                .catch(function (error) {
+                    console.error('Unable to load the total pageview count:', error);
+                    countElement.textContent = '불러오지 못함';
+                });
+        })();
+    </script>
     {% if page.comments != false %}
         {% include disqus_comments.html %}
     {% endif %}

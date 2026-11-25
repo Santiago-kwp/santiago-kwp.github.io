@@ -320,6 +320,19 @@ body {
         transform: translateY(-50%);
     }
 }
+.site-visitor-count {
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 1rem;
+    color: $color_stack;
+    font-size: 0.875rem;
+    text-align: center;
+
+    strong {
+        color: $color_shark;
+    }
+}
 .row {
     justify-content: center;
     margin-top: 25px;
