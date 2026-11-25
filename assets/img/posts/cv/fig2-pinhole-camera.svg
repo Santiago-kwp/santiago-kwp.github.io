@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">정면 영상 평면을 사용한 핀홀 카메라 모형</title>
+  <desc id="desc">투영 중심과 물체 사이에 영상 평면을 둔 수학적 등가 모형. 영상은 정립상이다.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse">
+      <path d="M 0 0 L 8 4 L 0 8 z" fill="#455a64"/>
+    </marker>
+    <style>
+      text { font-family: sans-serif; fill: #263238; font-size: 18px; }
+      .plane { stroke: #455a64; stroke-width: 3; }
+      .axis { stroke: #78909c; stroke-width: 2; stroke-dasharray: 8 6; }
+      .ray { stroke: #e76f51; stroke-width: 2.5; fill: none; }
+      .measure { stroke: #455a64; stroke-width: 1.8; marker-start: url(#arrow); marker-end: url(#arrow); }
+      .guide { stroke: #90a4ae; stroke-width: 1.4; }
+      .point { fill: #e76f51; }
+    </style>
+  </defs>
+  <text x="420" y="34" text-anchor="middle">정면 영상 평면</text>
+  <text x="250" y="34" text-anchor="middle">투영 중심</text>
+  <text x="700" y="34" text-anchor="middle">물체 평면</text>
+  <line class="axis" x1="65" y1="180" x2="825" y2="180"/>
+  <text x="830" y="186">광학축</text>
+  <line class="plane" x1="420" y1="65" x2="420" y2="295"/>
+  <line class="plane" x1="250" y1="65" x2="250" y2="165"/>
+  <line class="plane" x1="250" y1="195" x2="250" y2="295"/>
+  <circle class="point" cx="250" cy="180" r="7"/>
+  <line class="plane" x1="700" y1="65" x2="700" y2="295"/>
+  <line class="ray" x1="700" y1="80" x2="250" y2="180"/>
+  <line class="ray" x1="700" y1="280" x2="250" y2="180"/>
+  <line x1="420" y1="142" x2="420" y2="218" stroke="#e76f51" stroke-width="5"/>
+  <circle class="point" cx="700" cy="80" r="4"/>
+  <circle class="point" cx="420" cy="142" r="4"/>
+  <text x="718" y="86">A</text>
+  <text x="438" y="148">A′</text>
+  <line class="guide" x1="700" y1="80" x2="758" y2="80"/>
+  <line class="guide" x1="700" y1="280" x2="758" y2="280"/>
+  <line class="measure" x1="748" y1="84" x2="748" y2="276"/>
+  <text x="770" y="185">X</text>
+  <line class="guide" x1="420" y1="142" x2="478" y2="142"/>
+  <line class="guide" x1="420" y1="218" x2="478" y2="218"/>
+  <line class="measure" x1="468" y1="146" x2="468" y2="214"/>
+  <text x="488" y="140">x</text>
+  <line class="guide" x1="250" y1="200" x2="250" y2="324"/>
+  <line class="guide" x1="420" y1="220" x2="420" y2="324"/>
+  <line class="measure" x1="256" y1="310" x2="414" y2="310"/>
+  <text x="335" y="302" text-anchor="middle">f</text>
+  <line class="guide" x1="700" y1="282" x2="700" y2="324"/>
+  <line class="measure" x1="256" y1="334" x2="694" y2="334"/>
+  <text x="475" y="328" text-anchor="middle">Z</text>
+  <text x="450" y="356" text-anchor="middle">닮은꼴 삼각형: x / f = X / Z</text>
+</svg>

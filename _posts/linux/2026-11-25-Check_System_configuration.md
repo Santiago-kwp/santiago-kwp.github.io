@@ -5,7 +5,7 @@ categories: [linux]
 tags: [linux, system configuration, hardware, kernel]
 ---
 
-> 리눅스 시스템 구성 정보를 어떤 명령어로 확인하고,
+> 리눅스 시스템 구성 정보를 어떤 명령어로 확인하고, 어떤 상황에서 어떻게 써야할지 체계적으로 정리해보자.
 
 ## 1.1 커널 정보 확인하기
 

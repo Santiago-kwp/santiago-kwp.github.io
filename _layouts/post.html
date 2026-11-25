@@ -44,6 +44,32 @@ layout: compress
         
     </header>
     {% include scripts.html %}
+    {% if page.mermaid == true %}
+    <!-- Mermaid: front-matter에 mermaid: true 인 글에서만 로드 -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+    <script>
+        (function () {
+            var nodes = [];
+            var codes = document.querySelectorAll('code.language-mermaid, div.language-mermaid code');
+            for (var i = 0; i < codes.length; i++) {
+                var code = codes[i];
+                var target = code.closest('div.language-mermaid') || code.closest('pre') || code;
+                if (!target.parentNode) { continue; }
+                var box = document.createElement('div');
+                box.className = 'mermaid';
+                box.style.textAlign = 'center';
+                box.style.margin = '1.5em 0';
+                box.textContent = code.textContent;
+                target.parentNode.replaceChild(box, target);
+                nodes.push(box);
+            }
+            if (nodes.length && window.mermaid) {
+                window.mermaid.initialize({ startOnLoad: false, theme: 'default', securityLevel: 'strict' });
+                window.mermaid.run({ nodes: nodes });
+            }
+        })();
+    </script>
+    {% endif %}
     {% if site.mathjax == true %}
     <!-- MathJax -->
     <script>
