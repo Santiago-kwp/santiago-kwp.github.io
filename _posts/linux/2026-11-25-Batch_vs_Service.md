@@ -27,57 +27,73 @@ tags: [service, batch job]
 #### A. 서비스로 구현해야 하는 경우
 - 조건: 네트워크 포트를 열고 클라이언트 접속을 기다리거나, 시스템 자원을 24시간 감시해야 할 때.
 - 관리 도구: `systemd` (일반적)
-- 우분투에서의 사용 방식:
-    1. `/etc/systemd/system/myService.service` 파일 작성
-    ```Ini
-    [Unit]
-    Description=My API Server
-    After=network.target
 
-    [Service]
-    ExecStart=/usr/bin/python3 /app/server.py
-    # 죽으면 자동으로 재시작
-    Restart=always 
-    User=www-data
+**우분투에서의 사용 방식**
 
-    [Install]
-    WantedBy=multi-user.target
-    ```
-    2. 등록 및 실행
-    ```bash
-    sudo systemctl daemon-reload # 서비스 파일을 만들거나 고친 뒤에 필요
-    sudo systemctl enable myService # 부팅 시 자동 시작
-    sudo systemctl start myService # 지금 실행
-    sudo systemctl enable --now myService # 위에 두 줄 합친 명령어
-    ```
+1. `/etc/systemd/system/myService.service` 파일 작성
+
+   ```ini
+   [Unit]
+   Description=My API Server
+   After=network.target
+
+   [Service]
+   ExecStart=/usr/bin/python3 /app/server.py
+   # 죽으면 자동으로 재시작
+   Restart=always
+   User=www-data
+
+   [Install]
+   WantedBy=multi-user.target
+   ```
+
+2. 등록 및 실행
+
+   ```bash
+   sudo systemctl daemon-reload # 서비스 파일을 만들거나 고친 뒤에 필요
+   sudo systemctl enable myService # 부팅 시 자동 시작
+   sudo systemctl start myService # 지금 실행
+   sudo systemctl enable --now myService # 위에 두 줄 합친 명령어
+   ```
 
 #### B. 배치(Batch)로 구현해야 하는 경우
 - 조건: 특정 주기로 대량의 데이터를 수집/가공하거나, 백업/정리 스크립트를 수행하고 프로세스가 끝나야 할 때.
-- 관리 도구:
-    1. `cron` (가장 전통적이고 대중적임)
-    2. `systemd timer` (모던 리눅스 표준 배치 관리 방식)
-    ```bash
-    crontab -e
-    ```
-- 내용 작성 예시 (매일 새벽 3시에 백업 스크립트 실행 후 종료):
-    ```text
-    0 3 * * * /home/ubuntu/scripts/backup.sh >> /var/log/backup.log 2>&1
-    ```
-- 단발성 서비스(`backup.service`):`Type=oneshot`으로 설정하여 끝나면 바로 종료되도록 함.
-    ```ini
-    [Service]
-    Type=oneshot
-    ExecStart=/home/ubunu/scripts/backup.sh
-    ```
-    - 타이머(`backup.timer`): 실행 주기를 지정
-    ```ini
-    [Timer]
-    OnCalendar=*-*-* 03:00:00 # 매일 새벽 3시
-    Persistent=true
 
-    [Install]
-    WantedBy=timers.target
-    ```
+**관리 도구**
+
+- `cron` (가장 전통적이고 대중적임)
+- `systemd timer` (모던 리눅스 표준 배치 관리 방식)
+
+편집 명령:
+
+```bash
+crontab -e
+```
+
+매일 새벽 3시에 백업 스크립트를 실행하는 예시:
+
+```text
+0 3 * * * /home/ubuntu/scripts/backup.sh >> /var/log/backup.log 2>&1
+```
+
+단발성 서비스(`backup.service`)는 `Type=oneshot`으로 설정하여 작업이 끝나면 종료되도록 합니다.
+
+```ini
+[Service]
+Type=oneshot
+ExecStart=/home/ubunu/scripts/backup.sh
+```
+
+타이머(`backup.timer`)에서 실행 주기를 지정합니다.
+
+```ini
+[Timer]
+OnCalendar=*-*-* 03:00:00 # 매일 새벽 3시
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+```
 
 #### 햇갈리기 쉬운 경계 사례 (Worker/Consumer 등)
 - 질문 : "메시지 큐(RabbitMQ, Kaffa 등)에서 데이터를 100건씩 묶어서 (배치로) 처리하는 워커는 서비스인가요, 배치인가요?
@@ -93,12 +109,14 @@ tags: [service, batch job]
     - `.service` (프로세스), `.timer` (스케쥴), `.target` (유닛 묶음/부팅 단계), `.socket`, `.mount` 등
 
 #### 파일 위치 (위쪽일수록 우선순위 높음)
+
 |경로|용도|
-|-|-|
+|---|---|
 |`/etc/systemd/system/`|관리자가 직접 작성하는 서비스(**직접 만드는 서비스는 여기**)|
 |`/run/systemd/system/`|런타임 생성 (재부팅 시 사라짐)|
 |`/lib/systemd/system/`|apt 등 패키지가 설치한 서비스 (직접 수정 X)|
 |`~/.config/systemd/user/`|사용자 서비스 (`systemctl --user`로 관리, 로그인 세션에 종속)|
+
 
 #### 기본 문법 규칙
 - `[섹션]` 아래에 `Key=Value` 형식으로 작성.
@@ -111,7 +129,7 @@ tags: [service, batch job]
 
 |구분|키|의미|
 |-|-|-|
-|의존성 (켤지 말지)|`Wants=`, `Requires=`|A를 켤 때 B도 같이 켠다 (순서는 정하지 않음 $\rarr$ 동시 시작)|
+|의존성 (켤지 말지)|`Wants=`, `Requires=`|A를 켤 때 B도 같이 켠다 (순서는 정하지 않음 $\rightarrow$ 동시 시작)|
 |순서 (언제 켤지)|`After=`, `Before=`|B가 다 켜진 다음에 A를 켠다 (B를 켜주지는 않음)|
 
 - `Wants=`만 쓰면: B는 켜지지만 A와 동시에 시작됨 → A가 B 준비 전에 실행될 수 있음.
@@ -121,16 +139,29 @@ tags: [service, batch job]
     - `network-online.target`은 기본적으로 아무도 켜지 않는 타깃이라 `After=`만 쓰면 대기 효과가 없음.
 - 두 개념을 분리한 이유: 기본은 전부 병렬로 켜서 부팅을 빠르게 하고, 꼭 필요한 곳에만 순서를 지정하기 위함.
 
-```
-① Wants=B 만          ② After=B 만               ③ Wants=B + After=B
-                      (아무도 B를 안 켜는 경우)
+<pre class="mermaid">
+flowchart LR
+    subgraph wants_only["① Wants=B만"]
+        direction TB
+        wants_a["A 시작 요청"] --- wants_b["B 시작 요청"]
+        wants_note["시작 순서는 보장되지 않음"]
+    end
 
-  A ████████            A ████████                 B ████
-  B ████████            B (실행 안 됨)              A      ████████
-  ↑ 동시 시작           ↑ 기다릴 대상이 없어           ↑ B가 확실히 켜지고,
-  A가 B 준비 전에         A가 바로 시작                 B 준비 완료 후 A 시작
-  실행될 수 있음
-  ```
+    subgraph after_only["② After=B만"]
+        direction TB
+        after_a["A 바로 시작"]
+        after_b["B는 시작되지 않음"]
+    end
+
+    subgraph wants_after["③ Wants=B + After=B"]
+        direction TB
+        ordered_b["B 시작 및 완료"] --> ordered_a["A 시작"]
+    end
+</pre>
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+</script>
 
 `network-online.target`이 대표 예시인 이유
 
@@ -188,17 +219,19 @@ tags: [service, batch job]
 |`idle`|다른 job이 다 끝난 뒤 실행|부팅 로그와 출력이 섞이지 않게 할 때 (드묾)|
 
 #### 2-2. 실행 명령
-|인자|의미|
-|-|-|
-|`ExecStart=`|실행할 명령 (필수). **셸을 거치지 않음**: `|`, `>`, `&&`, `*` 등은 해석되지 않음. 필요하면 `ExecStart=/bin/bash -c "명령 | 명령"`|
+
+| 인자 | 의미 |
+| --- | --- |
+| `ExecStart=` | 실행할 명령 (필수). **셸을 거치지 않음**: 파이프, 리다이렉션, `&&`, `*` 등은 해석되지 않음. 필요하면 `ExecStart=/bin/bash -c "명령1 && 명령2"` |
 |`ExecStartPre=` / `ExecStartPost=`|본 실행 전/후에 실행할 명령. 여러 줄 가능. 앞에 `-`를 붙이면 실패해도 무시 (`ExecStartPre=-/bin/mkdir -p /var/run/app`)|
 |`ExecReload=`|`systemctl reload` 시 실행할 명령 (예: `/bin/kill -HUP $MAINPID`)|
 |`ExecStop=`|중지 시 실행할 명령. 생략하면 SIGTERM을 보냄|
 |`RemainAfterExit=`|`oneshot`이 끝난 뒤에도 "active" 상태로 표시할지 (초기화 작업용)|
 
 #### 2-3. 실행 환경
-|인자|의미|
-|-|-|
+
+| 인자 | 의미 |
+| --- | --- |
 |`User=` / `Group=`|실행할 계정. 생략하면 **root로 실행**되므로 가급적 지정|
 |`WorkingDirectory=`|작업 디렉터리. 프로그램이 상대경로로 설정 파일이나 모델을 읽는다면 필수|
 |`Environment=`|환경변수 (`Environment="KEY=value"`). 여러 줄 가능|
@@ -224,16 +257,18 @@ tags: [service, batch job]
 - `systemctl stop`으로 직접 끈 경우에는 `always`여도 재시작하지 않음.
 
 #### 2-5. 시작/종료 제어
-|인자|의미|
-|-|-|
+
+| 인자 | 의미 |
+| --- | --- |
 |`TimeoutStartSec=`|시작 완료까지 허용 시간 (기본 90초). 초과하면 실패 처리|
 |`TimeoutStopSec=`|stop 시 SIGTERM 후 기다리는 시간 (기본 90초). 초과하면 SIGKILL로 강제 종료|
 |`KillMode=`|종료 대상. `control-group`(기본값, 자식 프로세스 포함 전부) / `mixed` / `process`(메인만)|
 |`KillSignal=`|종료 시 보낼 시그널 (기본 SIGTERM). 앱이 SIGINT에서만 정리 작업을 한다면 `SIGINT`로 지정|
 
 #### 2-6. 로그
-|인자|의미|
-|-|-|
+
+| 인자 | 의미 |
+| --- | --- |
 |`StandardOutput=` / `StandardError=`|출력 위치. 기본값은 `journal`. `append:/var/log/app.log`처럼 파일 지정도 가능|
 |`SyslogIdentifier=`|로그 태그 이름 (`journalctl -t 이름`으로 필터링)|
 
@@ -241,16 +276,18 @@ tags: [service, batch job]
     - `Environment="PYTHONUNBUFFERED=1"` 또는 `python3 -u` 사용.
 
 #### 2-7. 리소스 제한
-|인자|의미|
-|-|-|
+
+| 인자 | 의미 |
+| --- | --- |
 |`LimitNOFILE=`|열 수 있는 파일/소켓 수 한도 (기본 soft 1024)|
 |`MemoryMax=`|메모리 상한. 초과하면 OOM으로 종료 (메모리 누수 방어)|
 |`CPUQuota=`|CPU 사용률 상한 (`CPUQuota=200%` = 코어 2개분)|
 |`Nice=`|CPU 스케줄링 우선순위 (-20 ~ 19, 높을수록 양보)|
 
 #### 2-8. 헬스체크 / 보안 (선택)
-|인자|의미|
-|-|-|
+
+| 인자 | 의미 |
+| --- | --- |
 |`WatchdogSec=`|프로그램이 이 시간 안에 `sd_notify("WATCHDOG=1")`을 안 보내면 멈춘 것으로 보고 재시작. **프로세스는 살아 있는데 멈춘(hang) 상태**를 잡을 때 사용|
 |`NoNewPrivileges=yes`|프로세스가 권한 상승(sudo 등)을 못 하게 막음|
 |`ProtectSystem=full`|`/usr`, `/etc` 등을 읽기 전용으로 마운트|

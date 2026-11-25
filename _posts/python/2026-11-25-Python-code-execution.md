@@ -9,7 +9,7 @@ tags: [python code execution, memory]
 
 ## Python 코드 실행과 메모리에 올라가기까지 
 
-> python은 인터프리터 언어로, 파이썬 인터프리터가 설치되어 있다면 [compiler $\rarr$ byte code $\rarr$ pvm $\rarr$ running] 까지 다 알아서 해준다.
+> python은 인터프리터 언어로, 파이썬 인터프리터가 설치되어 있다면 [compiler $\rightarrow$ byte code $\rightarrow$ pvm $\rightarrow$ running] 까지 다 알아서 해준다.
 
 - 우리가 만든 `.py` 파일은 python interpreter에 의해 compile 되고, bytecode로 바뀐 뒤에 PVM(Python Virtual Machine) 위에서 구동(running)된다.
 - 여기서 이 "python interpreter"의 종류는 CPython, PyPy, IronPython 등이 있으며, 가장 많이 사용되는 것은 기본 제공되는 CPython이다.
@@ -49,12 +49,12 @@ tags: [python code execution, memory]
 - JVM은 이미 생성된 Bytecode만 실행
 - 컴파일 단계와 실행 단계가 명확히 분리됨
 
-|Python|Java|
-|-|-|
-|인터프리터 내부에 컴파일러 포함|컴파일러(javac)와 JVM 분리|
-|.py $\rarr$ bytecode $\rarr$ PVM을 인터프리터가 처리|.java $\rarr$ .class을 먼저 생성 후 JVM 실행|
-|실행 시 컴파일|실행 전 컴파일|
-|CPython, PyPy 등의 구현체 존재|OpenJDK, Oracle JDK 등의 JVM 구현체 존재|
+| Python | Java |
+| --- | --- |
+| 인터프리터 내부에 컴파일러 포함 | 컴파일러(javac)와 JVM 분리 |
+| .py $\rightarrow$ bytecode $\rightarrow$ PVM을 인터프리터가 처리 | .java $\rightarrow$ .class을 먼저 생성 후 JVM 실행 |
+| 실행 시 컴파일 | 실행 전 컴파일 |
+| CPython, PyPy 등의 구현체 존재 | OpenJDK, Oracle JDK 등의 JVM 구현체 존재 |
 
 **"Python은 인터프리터 언어, Java는 컴파일 언어**라고 단순히 구분하기보다는, 
 > 둘 다 중간 코드(Bytecode)를 생성하여 가상 머신 위에서 실행된다.
