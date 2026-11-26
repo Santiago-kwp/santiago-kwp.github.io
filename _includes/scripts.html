@@ -38,7 +38,8 @@
                     try {
                         window.goatcounter.visit_count({
                             append: '#site-visitor-count-widget',
-                            path: 'TOTAL'
+                            path: 'TOTAL',
+                            style: 'div { border-color: #9c85c7; background-color: #241a38; color: #f5efff; }'
                         });
                     } catch (error) {
                         console.error('Unable to render the GoatCounter visitor count:', error);

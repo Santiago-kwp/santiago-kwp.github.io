@@ -113,12 +113,16 @@ pre, code {
 }
 p code,
 li code,
+td code,
+th code,
 p pre,
 li pre {
     @include font(14);
-    background-color: $color_gray;
-    border: 1px solid $color_mischka;
+    color: $maroon;
+    background-color: #fff0f2;
+    border: 1px solid #e7c7cd;
     @include rounded(4px);
+    font-weight: 600;
     margin: 0 2px;
     padding: 0 5px;
 }
@@ -126,6 +130,8 @@ li .highlight code,
 li .highlight pre {
     background-color: transparent;
     border: 0;
+    color: inherit;
+    font-weight: normal;
 }
 
 // table

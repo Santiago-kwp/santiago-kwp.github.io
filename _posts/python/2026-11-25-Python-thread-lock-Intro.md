@@ -478,7 +478,7 @@ lock_to_use = self._buckets[bucket_index]
 ```
 
 3. 그 인덱스에 해당하는 락을 꺼내서 씀
-```
+```text
 [유저 ID]                 [해시 계산]            [64개의 락 버킷]
 "user_alice"   -->  hash() % 64 = 12   -->  _buckets[12] 락 사용
 "user_bob"     -->  hash() % 64 = 45   -->  _buckets[45] 락 사용
