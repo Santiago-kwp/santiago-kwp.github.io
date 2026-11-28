@@ -2,6 +2,7 @@
 layout: post
 title: "리눅스 시스템 구성 정보 확인하기"
 categories: [linux]
+subcategory: system
 tags: [linux, system configuration, hardware, kernel]
 ---
 

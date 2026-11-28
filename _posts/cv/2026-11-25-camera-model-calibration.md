@@ -2,6 +2,7 @@
 layout: post
 title: "카메라 모델과 보정: 핀홀부터 호모그래피까지"
 categories: [cv]
+subcategory: camera-calibration
 tags: [computer vision, camera calibration, OpenCV, homography]
 ---
 

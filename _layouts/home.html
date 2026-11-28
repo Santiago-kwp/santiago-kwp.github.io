@@ -1,73 +1,106 @@
 ---
 layout: compress
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js"><!--<![endif]-->
+<html class="no-js">
+    <!--<![endif]-->
 
-<head>
-    {% include head.html %}
-</head>
+    <head>
+        {% include head.html %}
+    </head>
 
-<body>
-    {% include nav.html %}
-    <!-- Header -->
-    <header class="header flex" role="banner">
-        <div class="container animated fadeIn">
-            <div class="row">
-                <a href="{{ site.url }}">
-                    <img src="{{ site.logo }}" class="img-circle zoombtn animated rotateIn">
-                </a>
-                <h3 class="title">
-                    <a class="zoombtn" href="{{ site.url }}">
-                        <p style="font-size:1.2rem;font-weight:300">{{ site.title }}</p>
-                    </a>
-                </h3>
-                <hr class="hr-line">
-                <h3 class="title">
+    <body>
+        {% include nav.html %}
+        <!-- Header -->
+        <header class="header flex" role="banner">
+            <div class="container animated fadeIn">
+                <div class="row">
                     <a href="{{ site.url }}">
-                        <p style="font-size:1rem;font-weight:300">{{ site.bio }}</p>
+                        <img
+                            src="{{ site.logo }}"
+                            class="img-circle zoombtn animated rotateIn"
+                        />
                     </a>
-                </h3>
-                {% include social-links.html %}
-                <hr class="hr-line">
-                <h3 class="title">
-                    <a class="btn zoombtn" href="{{ site.url }}/about">
-                        About
-                    </a>
-                    <a class="btn zoombtn" href="{{ site.url }}/posts">
-                        Posts
-                    </a>
-                    <a class="btn zoombtn" href="{{ site.url }}/projects">
-                        Projects
-                    </a>
-                </h3>
+                    <h3 class="title">
+                        <a class="zoombtn" href="{{ site.url }}">
+                            <p style="font-size: 1.2rem; font-weight: 300">
+                                {{ site.title }}
+                            </p>
+                        </a>
+                    </h3>
+                    <hr class="hr-line" />
+                    <h3 class="title">
+                        <a href="{{ site.url }}">
+                            <p style="font-size: 1rem; font-weight: 300">
+                                {{ site.bio }}
+                            </p>
+                        </a>
+                    </h3>
+                    {% include social-links.html %}
+                    <hr class="hr-line" />
+                    <h3 class="title">
+                        <a class="btn zoombtn" href="{{ site.url }}/about">
+                            About
+                        </a>
+                        <a class="btn zoombtn" href="{{ site.url }}/posts">
+                            Posts
+                        </a>
+                        <a class="btn zoombtn" href="{{ site.url }}/projects">
+                            Projects
+                        </a>
+                    </h3>
+                </div>
             </div>
-        </div>
-        {% assign sorted_categories = site.categories | sort %}
-        <aside class="home-categories" aria-label="포스트 주제별 목록">
-            <h2>주제별 포스트</h2>
-            <ul>
-                {% for category in sorted_categories %}
-                {% assign category_posts = category[1] | where_exp: "post", "post.project == nil" %}
-                {% if category_posts.size > 0 %}
-                {% assign category_label_key = category[0] %}
-                <li>
-                    <a href="{{ site.url }}/posts/#{{ category[0] | slugify }}">
-                        {% include category-label.html category=category_label_key %}
-                        <span>{{ category_posts.size }}</span>
-                    </a>
-                </li>
-                {% endif %}
-                {% endfor %}
-            </ul>
-            <a class="home-categories-all" href="{{ site.url }}/posts/">전체 포스트 보기</a>
-        </aside>
-    </header>
-    {% include scripts.html %}
-</body>
-
+            {% assign sorted_categories = site.categories | sort %}
+            <aside class="home-categories" aria-label="포스트 주제별 목록">
+                <h2>주제별 포스트</h2>
+                <ul>
+                    {% for category in sorted_categories %} {% assign
+                    category_posts = category[1] | where_exp: "post",
+                    "post.project == nil" %} {% if category_posts.size > 0 %} {%
+                    assign category_label_key = category[0] %} {% assign
+                    cat_slug = category[0] | slugify %}
+                    <li>
+                        <a href="{{ site.url }}/posts/#{{ cat_slug }}">
+                            {% include category-label.html
+                            category=category_label_key %}
+                            <span>{{ category_posts.size }}</span>
+                        </a>
+                        {% assign subcategories =
+                        site.data.categories[category_label_key].subcategories
+                        %} {% if subcategories %}
+                        <ul class="home-subcategories">
+                            {% for sub in subcategories %} {% assign sub_posts =
+                            category_posts | where: "subcategory", sub.key %} {%
+                            if sub_posts.size > 0 %}
+                            <li>
+                                <a
+                                    href="{{ site.url }}/posts/#{{ cat_slug }}-{{ sub.key | slugify }}"
+                                >
+                                    {{ sub.label }}
+                                    <span>{{ sub_posts.size }}</span>
+                                </a>
+                            </li>
+                            {% endif %} {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </li>
+                    {% endif %} {% endfor %}
+                </ul>
+                {% assign total_posts = site.posts | where_exp: "post",
+                "post.project == nil" %}
+                <a class="home-categories-all" href="{{ site.url }}/posts/"
+                    >전체 포스트 보기<span class="home-categories-total"
+                        >{{ total_posts.size }}</span
+                    ></a
+                >
+            </aside>
+        </header>
+        {% include scripts.html %}
+    </body>
 </html>

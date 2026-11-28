@@ -1,0 +1,60 @@
+# 포스트 대·소분류 표시명과 순서
+# 대분류 키(= front matter categories 값)
+#   label: 표시명
+#   subcategories: 표시 순서대로
+#     - key:   front matter subcategory 값 (앵커 id에도 사용)
+#       label: 표시명
+#       sort:  (선택) title → 제목 오름차순. 생략 시 최신순
+
+cv:
+  label: ComputerVision
+  subcategories:
+    - key: camera-calibration
+      label: 카메라 보정
+    - key: image-format
+      label: 영상 포맷
+
+linux:
+  label: Linux
+  subcategories:
+    - key: system
+      label: 시스템 관리
+
+multimedia:
+  label: Multimedia
+  subcategories:
+    - key: protocol
+      label: 스트리밍·프로토콜
+
+network:
+  label: Network
+  subcategories:
+    - key: tcp-ip
+      label: TCP/IP
+      sort: title
+    - key: monitoring
+      label: 네트워크 관리·모니터링
+
+python:
+  label: Python
+  subcategories:
+    - key: internals
+      label: 동작 원리
+    - key: concurrency
+      label: 동시성
+    - key: convention
+      label: 코딩 컨벤션
+
+software:
+  label: Software
+  subcategories:
+    - key: ddd
+      label: 도메인 주도 설계
+
+ui_ux:
+  label: UI/UX
+  subcategories:
+    - key: laws-of-ux
+      label: UX 법칙
+    - key: ux-practice
+      label: UX 실무·윤리

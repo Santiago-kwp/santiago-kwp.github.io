@@ -3,6 +3,7 @@ layout: post
 title: "[TCP/IP 1] TCP/IP 개요와 5계층 구조"
 date: 2026-11-25 09:01:00 +0900
 categories: [network]
+subcategory: tcp-ip
 tags: [TCP/IP, network, protocol, OSI, packet]
 ---
 

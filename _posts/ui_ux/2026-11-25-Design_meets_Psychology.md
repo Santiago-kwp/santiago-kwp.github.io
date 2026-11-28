@@ -2,6 +2,7 @@
 layout: post
 title: "디자인과 심리학: UX 원칙을 팀에 정착시키기"
 categories: [ui_ux]
+subcategory: ux-practice
 tags: [UX, design, psychology, team]
 ---
 

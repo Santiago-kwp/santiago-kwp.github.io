@@ -2,6 +2,7 @@
 layout: post
 title: "포스텔의 법칙: 입력에는 유연하게, 결과는 예측 가능하게"
 categories: [ui_ux]
+subcategory: laws-of-ux
 tags: [UX, robustness, accessibility, validation]
 ---
 

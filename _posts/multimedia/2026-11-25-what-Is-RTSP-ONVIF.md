@@ -2,6 +2,7 @@
 layout: post
 title: RTSP 와 ONVIF 개념 - CCTV와 영상처리 개발자가 알아야 할 내용
 categories: [multimedia]
+subcategory: protocol
 tags: [RTSP, ONVIF, cctv]
 ---
 

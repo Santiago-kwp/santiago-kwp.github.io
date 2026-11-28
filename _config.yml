@@ -15,15 +15,15 @@ permalink: /:title/
 markdown: kramdown
 highlighter: rouge
 kramdown:
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  enable_coderay: false
+    auto_ids: true
+    footnote_nr: 1
+    entity_output: as_char
+    toc_levels: 1..6
+    enable_coderay: false
 mathjax: true
 sass:
-  sass_dir: _sass
-  style: compressed
+    sass_dir: _sass
+    style: compressed
 
 # Comments
 
@@ -40,7 +40,7 @@ email: pgw10243@gmail.com
 github-url: Santiago-kwp
 google-scholar: Ciol1DAAAAAJ&hl
 #stackoverflow: 123456/username   from a "http://stackoverflow.com/users/123456/username" link
-#linkedin: username
+linkedin: kwpark-itsantiago
 #xing: username
 #lastfm: username
 #tumblr: username
@@ -60,32 +60,33 @@ google-scholar: Ciol1DAAAAAJ&hl
 
 # Plugins
 plugins:
-  - jekyll-mentions
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-seo-tag
-  - jekyll-paginate
-  - jekyll-include-cache
+    - jekyll-mentions
+    - jekyll-feed
+    - jekyll-sitemap
+    - jekyll-gist
+    - jekyll-seo-tag
+    - jekyll-paginate
+    - jekyll-include-cache
 
 jekyll-mentions:
-  base_url: https://github.com
+    base_url: https://github.com
 
 # Exclude list
 exclude:
-  [
-    .git,
-    .sass-cache,
-    README.md,
-    Gemfile,
-    Gemfile.lock,
-    node_modules,
-    gulpfile.js,
-    package.json,
-    _site,
-    src,
-    vendor,
-    CNAME,
-    LICENSE,
-    Rakefile,
-  ]
+    [
+        .git,
+        .sass-cache,
+        README.md,
+        Gemfile,
+        Gemfile.lock,
+        node_modules,
+        gulpfile.js,
+        package.json,
+        _site,
+        src,
+        vendor,
+        CNAME,
+        LICENSE,
+        Rakefile,
+        docs,
+    ]

@@ -2,6 +2,7 @@
 layout: post
 title: 리눅스에서 배치와 서비스 비교
 categories: [linux]
+subcategory: system
 tags: [service, batch job]
 ---
 > 어떤 상황에서 서비스를 만들고, 배치로 하는게 좋을지 구분해서 알아보자.

@@ -311,11 +311,30 @@ body {
         width: 100%;
     }
 
+    // 전체 글 수: 링크 박스 배치는 그대로 두고 오른쪽 끝에만 띄움
+    .home-categories-total {
+        float: right;
+        opacity: 0.75;
+    }
+
+    .home-subcategories {
+        padding-left: 1rem;
+        @include font-rem(14);
+        opacity: 0.85;
+
+        li a {
+            padding: 0.25rem 0;
+        }
+    }
+
     @media only screen and (min-width: 62.6em) {
         position: absolute;
-        top: 50%;
+        // 좌상단 메뉴 버튼(4rem)과 겹치지 않도록 그 아래 영역 기준으로 세로 중앙 정렬
+        top: calc(50% + 2rem);
         left: 2rem;
         width: 230px;
+        max-height: calc(100vh - 6rem);
+        overflow-y: auto;
         margin: 0;
         transform: translateY(-50%);
     }

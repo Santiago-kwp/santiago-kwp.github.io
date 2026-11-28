@@ -3,6 +3,7 @@ layout: post
 title: "[TCP/IP 3] 애플리케이션 계층 - HTTP, 쿠키, TLS, 메일 프로토콜"
 date: 2026-11-25 09:03:00 +0900
 categories: [network]
+subcategory: tcp-ip
 tags: [TCP/IP, HTTP, cookie, TLS, SMTP, POP3, MIME]
 mermaid: true
 ---

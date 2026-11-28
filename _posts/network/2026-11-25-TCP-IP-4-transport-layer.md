@@ -3,6 +3,7 @@ layout: post
 title: "[TCP/IP 4] 트랜스포트 계층 - TCP와 UDP 제대로 이해하기"
 date: 2026-11-25 09:04:00 +0900
 categories: [network]
+subcategory: tcp-ip
 tags: [TCP/IP, TCP, UDP, QUIC, handshake, congestion control]
 ---
 

@@ -2,6 +2,7 @@
 layout: post
 title: "Python namespace와 scope: 이름 탐색과 바인딩"
 categories: [python]
+subcategory: internals
 tags: [python, namespace, scope, LEGB]
 ---
 

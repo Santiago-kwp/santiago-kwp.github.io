@@ -2,6 +2,7 @@
 layout: post
 title: "도허티 임계: 빠른 반응과 사용자의 통제감"
 categories: [ui_ux]
+subcategory: laws-of-ux
 tags: [UX, performance, latency, feedback]
 ---
 

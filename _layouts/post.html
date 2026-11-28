@@ -20,6 +20,21 @@ layout: compress
             <div class="content">
                 <div class="post-title {% if page.feature %} feature {% endif %}">
                     <h1>{{ page.title }}</h1>
+                    {% assign back_url = site.url | append: "/posts/" %}
+                    {% if page.project == nil and page.categories.size > 0 %}
+                    {% assign category_label_key = page.categories[0] %}
+                    {% assign cat_slug = category_label_key | slugify %}
+                    {% assign back_url = back_url | append: "#" | append: cat_slug %}
+                    <p class="post-breadcrumb">
+                        <a href="{{ site.url }}/posts/#{{ cat_slug }}">{% include category-label.html category=category_label_key %}</a>
+                        {% if page.subcategory %}
+                        {% assign sub_key = page.subcategory %}
+                        {% assign sub_anchor = cat_slug | append: "-" | append: sub_key | slugify %}
+                        {% assign back_url = site.url | append: "/posts/#" | append: sub_anchor %}
+                        › <a href="{{ back_url }}">{% include subcategory-label.html category=category_label_key subcategory=sub_key %}</a>
+                        {% endif %}
+                    </p>
+                    {% endif %}
                     <h4>{{ page.date | date_to_string }}</h4>
                     {% if site.reading_time %}
                     <p class="reading-time">
@@ -30,7 +45,7 @@ layout: compress
                     {% if page.project %}
                     <a class="btn zoombtn" href="{{site.url}}/projects/">
                         {% else %}
-                        <a class="btn zoombtn" href="{{site.url}}/posts/">
+                        <a class="btn zoombtn" href="{{ back_url }}">
                             {% endif %}
                             <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
                         </a>

@@ -1,6 +1,6 @@
-{%- case include.category -%}
-{%- when 'cv' -%}ComputerVision
-{%- when 'ui_ux' -%}UI/UX
+{%- assign cat_data = site.data.categories[include.category] -%}
+{%- if cat_data.label -%}
+{{ cat_data.label }}
 {%- else -%}
 {{ include.category | replace: '-', ' ' | capitalize }}
-{%- endcase -%}
+{%- endif -%}

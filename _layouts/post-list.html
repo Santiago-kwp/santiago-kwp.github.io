@@ -27,31 +27,53 @@ layout: compress
                         {% assign category_posts = category[1] | where_exp: "post", "post.project == nil" %}
                         {% if category_posts.size > 0 %}
                         {% assign category_label_key = category[0] %}
-                    <h2 id="{{ category[0] | slugify }}">{% include category-label.html category=category_label_key %}</h2>
-                    <ul>
-                            {% for post in category_posts %}
-                        <li class="wow fadeInLeft" data-wow-duration="1.5s">
-                            <a class="zoombtn" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
-                            <p>{{ post.excerpt }}</p>
-                            <a href="{{ site.url }}{{ post.url }}" class="btn zoombtn">Read More</a>
-                        </li>
-                            {% endfor %}
-                    </ul>
+                        {% assign cat_slug = category[0] | slugify %}
+                        {% assign cat_data = site.data.categories[category_label_key] %}
+                        {% assign registered = "," %}
+                        {% assign rendered_groups = 0 %}
+                    <h2 id="{{ cat_slug }}">{% include category-label.html category=category_label_key %}</h2>
+
+                        {% comment %} 1. 데이터 파일에 등록된 소분류 (등록 순서대로) {% endcomment %}
+                        {% for sub in cat_data.subcategories %}
+                            {% assign sub_posts = category_posts | where: "subcategory", sub.key %}
+                            {% if sub.sort == "title" %}{% assign sub_posts = sub_posts | sort: "title" %}{% endif %}
+                            {% assign registered = registered | append: sub.key | append: "," %}
+                            {% if sub_posts.size > 0 %}
+                                {% assign rendered_groups = rendered_groups | plus: 1 %}
+                                {% assign sub_key = sub.key %}
+                    <h3 id="{{ cat_slug }}-{{ sub_key | slugify }}">{% include subcategory-label.html category=category_label_key subcategory=sub_key %}</h3>
+                    {% include post-items.html posts=sub_posts %}
+                            {% endif %}
+                        {% endfor %}
+
+                        {% comment %} 2. 데이터 파일에 없는 소분류 (폴백 표시명) {% endcomment %}
+                        {% assign groups = category_posts | group_by: "subcategory" %}
+                        {% for group in groups %}
+                            {% assign needle = "," | append: group.name | append: "," %}
+                            {% if group.name != "" %}{% unless registered contains needle %}
+                                {% assign rendered_groups = rendered_groups | plus: 1 %}
+                                {% assign sub_key = group.name %}
+                    <h3 id="{{ cat_slug }}-{{ sub_key | slugify }}">{% include subcategory-label.html category=category_label_key subcategory=sub_key %}</h3>
+                    {% include post-items.html posts=group.items %}
+                            {% endunless %}{% endif %}
+                        {% endfor %}
+
+                        {% comment %} 3. 소분류 없는 글 {% endcomment %}
+                        {% for group in groups %}
+                            {% if group.name == "" %}
+                                {% if rendered_groups > 0 %}
+                    <h3 id="{{ cat_slug }}-etc">기타</h3>
+                                {% endif %}
+                    {% include post-items.html posts=group.items %}
+                            {% endif %}
+                        {% endfor %}
                         {% endif %}
                     {% endfor %}
 
                     {% assign uncategorized_posts = site.posts | where_exp: "post", "post.categories.size == 0" | where_exp: "post", "post.project == nil" %}
                     {% if uncategorized_posts.size > 0 %}
                     <h2>Uncategorized</h2>
-                    <ul>
-                        {% for post in uncategorized_posts %}
-                        <li class="wow fadeInLeft" data-wow-duration="1.5s">
-                            <a class="zoombtn" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
-                            <p>{{ post.excerpt }}</p>
-                            <a href="{{ site.url }}{{ post.url }}" class="btn zoombtn">Read More</a>
-                        </li>
-                        {% endfor %}
-                    </ul>
+                    {% include post-items.html posts=uncategorized_posts %}
                     {% endif %}
                 </div>
             </div>

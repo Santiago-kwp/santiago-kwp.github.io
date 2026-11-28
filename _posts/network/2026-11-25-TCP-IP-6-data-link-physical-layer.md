@@ -3,6 +3,7 @@ layout: post
 title: "[TCP/IP 6] 데이터 링크 계층과 물리 계층 - 이더넷, MAC, ARP, PPPoE"
 date: 2026-11-25 09:06:00 +0900
 categories: [network]
+subcategory: tcp-ip
 tags: [TCP/IP, Ethernet, MAC, ARP, VLAN, PPP, PPPoE, PoE]
 ---
 

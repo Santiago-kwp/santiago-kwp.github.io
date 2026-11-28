@@ -2,6 +2,7 @@
 layout: post
 title: "테슬러의 법칙: 복잡성은 어디에 둘 것인가"
 categories: [ui_ux]
+subcategory: laws-of-ux
 tags: [UX, complexity, abstraction, product-design]
 ---
 

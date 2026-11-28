@@ -2,6 +2,7 @@
 layout: post
 title: "도메인 주도 개발 시작하기 - 1장. 도메인 모델 시작하기"
 categories: [software]
+subcategory: ddd
 tags: [domain-driven-design, DDD, software-architecture]
 ---
 

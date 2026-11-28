@@ -2,6 +2,7 @@
 layout: post
 title: Python 코드 실행과 메모리에 올라가기까지의 과정
 categories: [python]
+subcategory: internals
 tags: [python code execution, memory]
 ---
 

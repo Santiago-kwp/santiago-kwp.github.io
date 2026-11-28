@@ -3,6 +3,7 @@ layout: post
 title: "[TCP/IP 2] 통신 서비스와 애플리케이션 프로토콜"
 date: 2026-11-25 09:02:00 +0900
 categories: [network]
+subcategory: tcp-ip
 tags: [TCP/IP, network, URL, DNS, HTTP, SMTP, FTP, SSH]
 ---
 

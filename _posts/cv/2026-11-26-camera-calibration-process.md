@@ -2,6 +2,7 @@
 layout: post
 title: "더 정밀한 카메라 보정 방식에 대하여 - 참조점 활용 방법"
 categories: [cv]
+subcategory: camera-calibration
 tags: [computer vision, camera calibration, OpenCV, homography]
 ---
 

@@ -3,6 +3,7 @@ layout: post
 title: "[TCP/IP 5] 네트워크 계층 - IP 주소, ICMP, DHCP, NAT"
 date: 2026-11-25 09:05:00 +0900
 categories: [network]
+subcategory: tcp-ip
 tags: [TCP/IP, IP, IPv6, ICMP, DHCP, NAT, CGNAT]
 ---
 

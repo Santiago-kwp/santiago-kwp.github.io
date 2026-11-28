@@ -1,10 +1,11 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-11-25T10:07:23.832Z",
+  "lastUpdated": "2026-11-28T07:00:00.000Z",
   "activeFeatures": [
-    "scratchpad"
+    "scratchpad",
+    "post-subcategory"
   ],
-  "primaryFeature": "scratchpad",
+  "primaryFeature": "post-subcategory",
   "features": {
     "scratchpad": {
       "phase": "do",
@@ -18,6 +19,21 @@
         "lastUpdated": "2026-11-25T10:07:23.831Z"
       },
       "lastFile": "C:\\Users\\HydroSEM\\AppData\\Local\\Temp\\claude\\f82203759d482957\\19831f88-0d44-421b-b339-d4d8428d2566\\scratchpad\\check.py"
+    },
+    "post-subcategory": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {
+        "plan": "docs/01-plan/features/post-subcategory.plan.md",
+        "design": "docs/02-design/features/post-subcategory.design.md"
+      },
+      "timestamps": {
+        "started": "2026-11-28T06:00:00.000Z",
+        "lastUpdated": "2026-11-28T07:00:00.000Z"
+      }
     }
   },
   "pipeline": {
@@ -46,6 +62,18 @@
     {
       "timestamp": "2026-11-25T10:07:23.831Z",
       "feature": "scratchpad",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-11-28T06:00:00.000Z",
+      "feature": "post-subcategory",
+      "phase": "design",
+      "action": "created"
+    },
+    {
+      "timestamp": "2026-11-28T07:00:00.000Z",
+      "feature": "post-subcategory",
       "phase": "do",
       "action": "updated"
     }

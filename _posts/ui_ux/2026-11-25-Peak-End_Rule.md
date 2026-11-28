@@ -2,6 +2,7 @@
 layout: post
 title: "피크엔드 법칙: 사용자의 기억에 남는 경험 설계"
 categories: [ui_ux]
+subcategory: laws-of-ux
 tags: [UX, memory, emotion, journey]
 ---
 

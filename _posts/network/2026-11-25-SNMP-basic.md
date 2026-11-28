@@ -2,6 +2,7 @@
 layout: post
 title: "SNMP 기초와 네트워크 장비 모니터링"
 categories: [network]
+subcategory: monitoring
 tags: [SNMP, network, monitoring, MIB]
 ---
 

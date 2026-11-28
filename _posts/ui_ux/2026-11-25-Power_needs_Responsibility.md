@@ -2,6 +2,7 @@
 layout: post
 title: "힘에는 책임이 따른다: UX 설계의 윤리"
 categories: [ui_ux]
+subcategory: ux-practice
 tags: [UX, ethics, responsibility, dark-patterns]
 ---
 

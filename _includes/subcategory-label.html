@@ -1,0 +1,5 @@
+{%- assign sub_label = nil -%} {%- for sub in
+site.data.categories[include.category].subcategories -%} {%- if sub.key ==
+include.subcategory -%}{%- assign sub_label = sub.label -%}{%- endif -%} {%-
+endfor -%} {%- if sub_label -%} {{ sub_label }} {%- else -%} {{
+include.subcategory | replace: '-', ' ' | capitalize }} {%- endif -%}

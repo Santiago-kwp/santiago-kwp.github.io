@@ -2,6 +2,7 @@
 layout: post
 title: "Python 스레드 Lock 기초와 동기화"
 categories: [python]
+subcategory: concurrency
 tags: [python, threading, lock, concurrency]
 ---
 

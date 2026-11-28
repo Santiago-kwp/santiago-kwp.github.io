@@ -11,7 +11,7 @@ comments: false
         <div class="about-hero-copy">
             <p class="about-kicker">HYDROLOGY · COMPUTER VISION · SOFTWARE</p>
             <h2 id="about-intro-title">하천의 흐름을,<br>영상으로 측정합니다.</h2>
-            <p>하천 관측과 영상 기반 유속·유량 계측 시스템을 개발합니다. 현장의 데이터를 신뢰할 수 있는 관측 정보로 연결하는 기술과 그 과정을 이 블로그에 기록합니다.</p>
+            <p>하천 관측과 가시광선 및 분광 영상 기반 유속·유량·유사량 계측 시스템을 개발합니다. 현장의 데이터를 신뢰할 수 있는 관측 정보로 연결하는 기술과 그 과정을 이 블로그에 기록합니다.</p>
         </div>
     </section>
 
@@ -55,4 +55,5 @@ comments: false
             </a>
         </div>
     </section>
+
 </main>
